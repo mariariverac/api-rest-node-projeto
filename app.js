@@ -16,7 +16,7 @@ sequelize.sync({ force: false }).then(() => {
 app.use('/api', routes);
 
 app.get('/', (req, res) => {
-  res.send('Bem-vindo à minha API Express!');
+  res.send('Bem-vindo a esta página!');
 });
 
 app.listen(port, () => {
