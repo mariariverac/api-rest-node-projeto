@@ -15,6 +15,10 @@ sequelize.sync({ force: false }).then(() => {
 
 app.use('/api', routes);
 
+app.get('/', (req, res) => {
+  res.send('Bem-vindo à minha API Express!');
+});
+
 app.listen(port, () => {
  console.log(`Server running at http://localhost:${port}`);
 });
