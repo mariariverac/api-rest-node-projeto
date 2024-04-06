@@ -1,11 +1,3 @@
-const express = require('express');
-const app = express();
-const port = 3000;
-
-app.use(express.json());
-
-const routes = require('./routes');
-
 const { sequelize } = require('./models/index');
 const User = require('./models/user');
 
@@ -15,6 +7,12 @@ sequelize.sync({ force: false }).then(() => {
 
 app.use('/api', routes);
 
+// Rota raiz adicionada aqui
+app.get('/', (req, res) => {
+  res.send('Bem-vindo à minha API Express!');
+});
+
+// Inicialização do servidor mantida como estava
 app.listen(port, () => {
- console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
 });
